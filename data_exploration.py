@@ -22,3 +22,19 @@ print(df.isnull().sum())
 # Display column names
 print("\nColumns in Dataset:")
 print(df.columns)
+
+# Convert 'Total Charges' to numeric (fixing blank spaces)
+df['Total Charges'] = pd.to_numeric(df['Total Charges'], errors='coerce')
+
+# Check how many NaNs appeared after conversion
+print("\nMissing values in 'Total Charges' after conversion:")
+print(df['Total Charges'].isnull().sum())
+
+# Option: Drop rows with NaN in 'Total Charges'
+df = df.dropna(subset=['Total Charges'])
+
+# Reset index after drop
+df.reset_index(drop=True, inplace=True)
+
+print("\nData types after fixing 'Total Charges':")
+print(df.dtypes)
