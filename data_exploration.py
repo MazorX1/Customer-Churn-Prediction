@@ -1,17 +1,24 @@
 import pandas as pd
 
-# Load the dataset
-df = pd.read_excel("Telco_customer_churn.xlsx")
+# Load the dataset from the 'data' folder
+df = pd.read_excel(r"data\Telco_customer_churn.xlsx")
 
-# Display basic info
-print("First 5 rows:")
-print(df.head(), "\n")
+# Display first 5 rows
+print("First 5 rows of the dataset:")
+print(df.head())
 
-print("Dataset info:")
-print(df.info(), "\n")
+# Display dataset info
+print("\nDataset Info:")
+print(df.info())
 
-print("Missing values per column:")
-print(df.isnull().sum(), "\n")
+# Display basic statistics
+print("\nBasic Statistics:")
+print(df.describe())
 
-print("Basic statistics for numeric columns:")
-print(df.describe(), "\n")
+# Check for missing values
+print("\nMissing Values:")
+print(df.isnull().sum())
+
+# Display column names
+print("\nColumns in Dataset:")
+print(df.columns)
