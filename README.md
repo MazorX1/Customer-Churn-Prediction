@@ -18,10 +18,13 @@ git clone https://github.com/MazorX1/Customer-Churn-Prediction.git
 cd Customer-Churn-Prediction
 
 #2 Install dependencies:
+
 bash
 
 pip install -r requirements.txt
 
 #3 Run the Streamlit app:
+
 bash
+
 streamlit run app/streamlit_app.py
