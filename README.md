@@ -1,25 +1,60 @@
-# Customer Churn Prediction
+Telco Customer Churn Prediction
+📌 Project Overview
+This project aims to predict customer churn in a telecommunications company using machine learning. Churn prediction helps identify customers likely to stop using the service, enabling proactive retention strategies.
 
-This project predicts whether a customer is likely to churn based on historical data.
+We use the Telco Customer Churn dataset to explore customer demographics, service usage, and billing details, then build a classification model to predict churn likelihood.
 
-## Project Structure
-- **data/** – contains raw and processed datasets.
-- **src/** – source code for training and prediction.
-- **app/** – Streamlit web app for interacting with the model.
-- **requirements.txt** – Python dependencies.
-- **Dockerfile** – containerization instructions.
+📂 Dataset
+File: Telco_customer_churn.xlsx
 
-## How to Run
-#1 Clone the repository:
+Source: Public dataset (commonly used for churn analysis)
 
-git clone https://github.com/MazorX1/Customer-Churn-Prediction.git
+Description: Contains customer-level data including:
 
-cd Customer-Churn-Prediction
+Customer demographics (gender, senior citizen, partner, dependents)
 
-#2 Install dependencies:
+Service details (phone, internet, streaming, security services)
 
-pip install -r requirements.txt
+Account information (contract type, tenure, billing method)
 
-#3 Run the Streamlit app:
+Target variable: Churn — Yes/No
 
-streamlit run app/streamlit_app.py
+⚙️ Tech Stack
+Language: Python 3.x
+
+Libraries:
+
+pandas — Data manipulation
+
+numpy — Numerical operations
+
+matplotlib / seaborn — Visualization
+
+scikit-learn — Machine learning models
+
+openpyxl — Excel file handling
+
+🚀 Project Workflow
+Data Ingestion — Load Excel data into Pandas.
+
+Exploratory Data Analysis (EDA) — Understand patterns, correlations, and missing values.
+
+Data Preprocessing — Encode categorical variables, scale numerical features, handle missing data.
+
+Model Training — Train and evaluate classification models (Logistic Regression, Random Forest, etc.).
+
+Model Evaluation — Use accuracy, precision, recall, F1-score, and ROC-AUC.
+
+Deployment (Optional) — Deploy using Streamlit or Flask.
+
+📊 Example Use Case
+The churn model can help a telecom company:
+
+Identify high-risk customers.
+
+Offer discounts or incentives.
+
+Improve retention rate and revenue.
+
+📜 License
+This project uses open-source datasets. You are free to use and modify the code for educational purposes.
