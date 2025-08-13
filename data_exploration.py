@@ -30,18 +30,28 @@ print(df.columns)
 # -------------------------------
 # Data Cleaning
 # -------------------------------
-# Convert 'Total Charges' to numeric (fix blank spaces)
 df['Total Charges'] = pd.to_numeric(df['Total Charges'], errors='coerce')
-
-# Show how many NaNs appeared
 print("\nMissing values in 'Total Charges' after conversion:")
 print(df['Total Charges'].isnull().sum())
 
-# Drop rows with missing Total Charges
 df = df.dropna(subset=['Total Charges']).reset_index(drop=True)
-
 print("\nData types after fixing 'Total Charges':")
 print(df.dtypes)
+
+# -------------------------------
+# Remove data leakage columns BEFORE EDA
+# -------------------------------
+leakage_cols = [
+    "CustomerID",
+    "Churn Value",
+    "Churn Score",
+    "CLTV",
+    "Churn Reason"
+]
+df = df.drop(columns=[col for col in leakage_cols if col in df.columns])
+
+# Save target separately
+target = df["Churn Label"]
 
 # Save cleaned data
 df.to_excel(clean_file_path, index=False)
@@ -60,8 +70,6 @@ plt.show()
 
 # Identify numeric features (exclude ID column if exists)
 numeric_features = df.select_dtypes(include=['float64', 'int64']).columns.tolist()
-if 'CustomerID' in numeric_features:
-    numeric_features.remove('CustomerID')
 
 # Plot distributions of numeric features
 df[numeric_features].hist(figsize=(12, 10))
